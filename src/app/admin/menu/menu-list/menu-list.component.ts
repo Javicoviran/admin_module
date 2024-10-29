@@ -1,17 +1,18 @@
 import { Component, effect, inject, OnInit } from '@angular/core';
 import { MenuItemComponent } from '../menu-item/menu-item.component';
-import { NgFor, NgIf } from '@angular/common';
+import { NgClass, NgFor, NgIf } from '@angular/common';
 import { MenuItemModel } from '../model/menu-item.model';
 import { menuList } from '../utils/utils';
 import { Router, RouterOutlet } from '@angular/router';
 import { BreadCrumbService } from '../../../shared/services/bread-crumb.service';
+import { ThemeService } from '../../../shared/services/theme.service';
 
 @Component({
   selector: 'app-menu-list',
   standalone: true,
-  imports: [RouterOutlet, NgFor, NgIf, MenuItemComponent],
+  imports: [NgClass, RouterOutlet, NgFor, NgIf, MenuItemComponent],
   template: `
-    <div class="grid grid-cols-1 sm:grid-cols-2 w-full justify-center items-center gap-3 p-5">
+    <div class="grid justify-center items-center gap-3 p-5">
       @if (isAdminRoute(actualUrl)) { @for (menuItem of menuList;track menuItem
       ){
       <app-menu-item [menuItem]="menuItem"></app-menu-item>
@@ -24,12 +25,18 @@ import { BreadCrumbService } from '../../../shared/services/bread-crumb.service'
 export class MenuListComponent implements OnInit {
   private router = inject(Router);
   private breadCrumbService = inject(BreadCrumbService);
+  themeService = inject(ThemeService);
+  isDarkTheme!: boolean;
   menuList: MenuItemModel[] = menuList;
   actualUrl!: string;
 
   constructor() {
     effect(() => {
       this.actualUrl = this.breadCrumbService.actualRoute();
+      const newTheme = this.themeService.isDarkTheme();
+      if (this.isDarkTheme !== newTheme) {
+        this.isDarkTheme = newTheme;
+      }
     });
   }
 
