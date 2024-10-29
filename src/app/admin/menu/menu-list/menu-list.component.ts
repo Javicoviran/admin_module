@@ -12,14 +12,15 @@ import { ThemeService } from '../../../shared/services/theme.service';
   standalone: true,
   imports: [NgClass, RouterOutlet, NgFor, NgIf, MenuItemComponent],
   template: `
-    <div class="grid justify-center mt-5 items-center gap-3 w-full">
-      @if (isAdminRoute(actualUrl)) { @for (menuItem of menuList;track menuItem
-      ){
-      <app-menu-item [menuItem]="menuItem"></app-menu-item>
-      } } @if (!isAdminRoute(actualUrl)) {
-      <router-outlet></router-outlet>
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 justify-items-center my-5">
+      @for (menuItem of menuList;track menuItem ){
+      <app-menu-item
+        [menuItem]="menuItem"
+        class="w-full max-w-48"
+      ></app-menu-item>
       }
     </div>
+    <router-outlet></router-outlet>
   `,
 })
 export class MenuListComponent implements OnInit {

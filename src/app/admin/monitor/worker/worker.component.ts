@@ -20,7 +20,6 @@ import { ThemeService } from '../../../shared/services/theme.service';
     TabMenuComponent,
   ],
   template: `
-    <app-tab-menu></app-tab-menu>
     <div
       class="grid grid-cols-1 justify-center items-center gap-5 p-5 mt-3 rounded-xl"
       [ngClass]="{

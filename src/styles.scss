@@ -24,7 +24,7 @@ body {
   @include mat.all-component-colors(dark.$dark-theme);
 
   body {
-    background-color: #1a1f16;
+    background-color: #121212;
     color: #fafafa;
   }
 
@@ -44,7 +44,7 @@ body {
 .light-theme {
   body {
     background-color: #fafafa;
-    color: #1e1e1e;
+    color: #121212;
   }
 
   .secondary-button {
@@ -63,4 +63,3 @@ body {
 .mdc-notched-outline__notch {
   border-right: none;
 }
-

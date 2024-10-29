@@ -20,8 +20,6 @@ import { CovTableComponent } from '../../shared/ui/cov-table/cov-table.component
   ],
   template: `
     <div class="grid grid-cols-1 gap-5">
-      <app-tab-menu></app-tab-menu>
-
       <app-cov-table
         [columns]="columns"
         [dataSource]="dataSource"
