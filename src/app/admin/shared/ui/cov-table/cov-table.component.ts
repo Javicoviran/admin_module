@@ -11,14 +11,14 @@ import { NgClass } from '@angular/common';
   template: ` <div
     class="w-full overflow-x-auto border-2 rounded-xl"
     [ngClass]="{
-      ' border-black': !isDarkTheme,
-      'border-white': isDarkTheme
+      ' border-black text-black': !isDarkTheme,
+      'border-white text-white': isDarkTheme
     }"
   >
     <table
       mat-table
       [dataSource]="dataSource"
-      class="mat-elevation-z4 min-w-full"
+      class="min-w-full"
       [ngClass]="{ 'cov-table ': !isDarkTheme, 'cov-dark-table': isDarkTheme }"
     >
       @for (column of columns; track column) {
@@ -42,6 +42,10 @@ import { NgClass } from '@angular/common';
     }
     .cov-dark-table{
       background-color: #404040;
+    }
+    .mat-mdc-row:hover {
+      background-color: #e2e8f0;
+      color: black
     }
   `,
 })
