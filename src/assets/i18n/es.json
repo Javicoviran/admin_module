@@ -1,0 +1,59 @@
+{
+  "table": {
+    "TITLE": "Bienvenido",
+    "LANG": "Español"
+  },
+  "loginForm": {
+    "password": "Contraseña",
+    "email": "Correo electrónico",
+    "loginButton": "Iniciar sesión"
+  },
+  "loading": "Cargando",
+  "error": {
+    "title": "Error",
+    "message": "Algo salió mal. Por favor, inténtelo de nuevo más tarde.",
+    "reloadButton": "Recargar"
+  },
+  "configMenu": {
+    "profile": "perfil",
+    "close": "cerrar sesión"
+  },
+  "menu": {
+    "spanish": "Español",
+    "portuguese": "Português",
+    "english": "English"
+  },
+  "adminMenu": {
+    "monitor": "Monitor",
+    "statistics": "Estadísticas",
+    "configuration": "Configuración",
+    "exit": "Salir"
+  },
+  "processTable": {
+    "name": "Nombre"
+  },
+  "logTable": {
+    "title": "Registros"
+  },
+  "metricData": {
+    "status": "Estado",
+    "errors": "Errores",
+    "daysActive": "Días activo"
+  },
+  "metadata": {
+    "name": "Nombre",
+    "workers": "Workers",
+    "LUID": "LUID",
+    "PID": "PID",
+    "socket": "Socket activo",
+    "errors": "Errores"
+  },
+  "breadcrumb": {
+  "admin": "Menú",
+  "process": "Proceso",
+  "module": "Módulos",
+  "workers": "Workers",
+  "config": "Configuración",
+  "analytics": "Analíticas"
+}
+}

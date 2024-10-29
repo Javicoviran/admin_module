@@ -1,0 +1,59 @@
+{
+  "table": {
+    "TITLE": "Welcome",
+    "LANG": "English (UK)"
+  },
+  "loginForm": {
+    "password": "Password",
+    "email": "Email",
+    "loginButton": "Login"
+  },
+  "loading": "Loading",
+  "error": {
+    "title": "Error",
+    "message": "Something went wrong. Please try again later.",
+    "reloadButton": "Reload"
+  },
+  "menu": {
+    "spanish": "Español",
+    "portuguese": "Português",
+    "english": "English"
+  },
+  "configMenu": {
+    "profile": "profile",
+    "close": "close sesion"
+  },
+  "adminMenu": {
+    "monitor": "Monitor",
+    "statistics": "Statistics",
+    "configuration": "Configuration",
+    "exit": "Exit"
+  },
+  "processTable": {
+    "name": "Name"
+  },
+  "logTable": {
+    "title": "Logs"
+  },
+  "metricData": {
+    "status": "Status",
+    "errors": "Errors",
+    "daysActive": "Days active"
+  },
+  "metadata": {
+    "name": "Name",
+    "workers": "Workers",
+    "LUID": "LUID",
+    "PID": "PID",
+    "socket": "Socket active",
+    "errors": "Errors"
+  },
+  "breadcrumb": {
+    "admin": "Menu",
+    "process": "Process",
+    "module": "Modules",
+    "workers": "Workers",
+    "config": "Configuration",
+    "analytics": "Analytics"
+  }
+}

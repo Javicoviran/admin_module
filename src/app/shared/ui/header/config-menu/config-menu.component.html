@@ -1,0 +1,23 @@
+<button
+  mat-raised-button
+  [matMenuTriggerFor]="beforeMenu"
+  style="
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  "
+>
+  <mat-icon
+    aria-hidden="false"
+    aria-label="Settings icon"
+    style="margin: 0; text-align: center"
+    >settings</mat-icon
+  >
+</button>
+<mat-menu #beforeMenu="matMenu" xPosition="before">
+  <a mat-menu-item routerLink="/profile">{{
+    "configMenu.profile" | translate
+  }}</a>
+  <a mat-menu-item routerLink="/logout">{{ "configMenu.close" | translate }}</a>
+</mat-menu>

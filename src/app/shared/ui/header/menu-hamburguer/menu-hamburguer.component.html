@@ -1,0 +1,33 @@
+<button
+  mat-button
+  [matMenuTriggerFor]="beforeMenu"
+  style="
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+  "
+>
+  <img src="assets/svg/menu.svg" alt="setting-icon" />
+</button>
+<mat-menu #beforeMenu="matMenu" xPosition="before">
+  <a mat-menu-item routerLink="/profile">{{
+    "configMenu.profile" | translate
+  }}</a>
+  <a mat-menu-item routerLink="/logout">{{ "configMenu.close" | translate }}</a>
+  <button mat-menu-item [matMenuTriggerFor]="languageMenu">
+    {{ "table.LANG" | translate }}
+  </button>
+</mat-menu>
+
+<mat-menu #languageMenu="matMenu">
+  <a mat-menu-item (click)="onChangeLanguage('es')">{{
+    "menu.spanish" | translate
+  }}</a>
+  <a mat-menu-item (click)="onChangeLanguage('pt')">{{
+    "menu.portuguese" | translate
+  }}</a>
+  <a mat-menu-item (click)="onChangeLanguage('en')">{{
+    "menu.english" | translate
+  }}</a>
+</mat-menu>

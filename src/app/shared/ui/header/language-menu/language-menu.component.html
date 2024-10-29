@@ -1,0 +1,14 @@
+<button mat-raised-button [matMenuTriggerFor]="beforeMenu">
+  {{ "table.LANG" | translate }}
+</button>
+<mat-menu #beforeMenu="matMenu">
+  <button mat-menu-item (click)="onChangeLanguage('es')">
+    {{ "menu.spanish" | translate }}
+  </button>
+  <button mat-menu-item (click)="onChangeLanguage('pt')">
+    {{ "menu.portuguese" | translate }}
+  </button>
+  <button mat-menu-item (click)="onChangeLanguage('en')">
+    {{ "menu.english" | translate }}
+  </button>
+</mat-menu>

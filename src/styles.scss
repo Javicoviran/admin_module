@@ -1,1 +1,66 @@
-/* You can add global styles to this file, and also import other style files */
+@use "@angular/material" as mat;
+@use "sass:map";
+@use "./themes/light-theme.scss" as light;
+@use "./themes/dark-theme.scss" as dark;
+
+@include mat.core();
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+:root {
+  @include mat.all-component-themes(light.$light-theme);
+}
+
+.dark-theme {
+  @include mat.all-component-colors(dark.$dark-theme);
+
+  body {
+    background-color: #1a1f16;
+    color: #fafafa;
+  }
+
+  .secondary-button {
+    @include mat.button-color(dark.$dark-theme, $color-variant: secondary);
+  }
+
+  .tertiary-button {
+    @include mat.button-color(dark.$dark-theme, $color-variant: tertiary);
+  }
+
+  .error-button {
+    @include mat.button-color(dark.$dark-theme, $color-variant: error);
+  }
+}
+
+.light-theme {
+  body {
+    background-color: #fafafa;
+    color: #1e1e1e;
+  }
+
+  .secondary-button {
+    @include mat.button-color(light.$light-theme, $color-variant: secondary);
+  }
+
+  .tertiary-button {
+    @include mat.button-color(light.$light-theme, $color-variant: tertiary);
+  }
+
+  .error-button {
+    @include mat.button-color(light.$light-theme, $color-variant: error);
+  }
+}
+
+.mdc-notched-outline__notch {
+  border-right: none;
+}
+
