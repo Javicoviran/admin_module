@@ -10,8 +10,8 @@ import { NgClass } from '@angular/common';
   standalone: true,
   imports: [MatCardModule, TranslateModule, NgClass],
   template: `
-    <h4>Custom Metrics</h4>
-    <div class="grid grid-cols-1">
+    <div class="flex flex-col justify-between">
+      <h4>Custom Metrics</h4>
       <div>
         <span>{{ 'metricData.status' | translate }}: </span>
         <span

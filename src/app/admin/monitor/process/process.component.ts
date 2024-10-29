@@ -17,7 +17,6 @@ import { ThemeService } from '../../../shared/services/theme.service';
   selector: 'app-process',
   standalone: true,
   imports: [
-    NgClass,
     ProcessTableComponent,
     LogTableComponent,
     MetricsComponent,
@@ -27,8 +26,7 @@ import { ThemeService } from '../../../shared/services/theme.service';
   template: `
     <app-tab-menu></app-tab-menu>
     <div
-      class="grid grid-cols-1 lg:grid-cols-2 justify-center items-center gap-5 m-5 p-5 rounded-xl"
-      [ngClass]="{ 'bg-neutral-700': isDarkTheme, 'bg-white': !isDarkTheme }"
+      class="grid grid-cols-1 sm:grid-cols-2 justify-center items-center gap-5 my-5 w-full rounded-xl"
     >
       <app-process-table></app-process-table>
       <app-log-table></app-log-table>
@@ -37,22 +35,4 @@ import { ThemeService } from '../../../shared/services/theme.service';
     </div>
   `,
 })
-export class ProcessComponent implements AfterViewInit, OnInit {
-  private themeService = inject(ThemeService);
-  isDarkTheme!: boolean;
-
-  constructor() {
-    effect(() => {
-      const newTheme = this.themeService.isDarkTheme();
-      if (this.isDarkTheme !== newTheme) {
-        this.isDarkTheme = newTheme;
-      }
-    });
-  }
-  ngOnInit(): void {
-    this.isDarkTheme = this.themeService.isDarkTheme();
-  }
-  ngAfterViewInit(): void {
-    this.isDarkTheme = this.themeService.isDarkTheme();
-  }
-}
+export class ProcessComponent {}

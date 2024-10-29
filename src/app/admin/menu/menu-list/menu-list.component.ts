@@ -12,7 +12,7 @@ import { ThemeService } from '../../../shared/services/theme.service';
   standalone: true,
   imports: [NgClass, RouterOutlet, NgFor, NgIf, MenuItemComponent],
   template: `
-    <div class="grid justify-center items-center gap-3 p-5">
+    <div class="grid justify-center mt-5 items-center gap-3 w-full">
       @if (isAdminRoute(actualUrl)) { @for (menuItem of menuList;track menuItem
       ){
       <app-menu-item [menuItem]="menuItem"></app-menu-item>
