@@ -10,7 +10,7 @@ import { LogModel } from '../models/log.model';
   imports: [NgClass, NgFor, TranslateModule],
   template: `
     <div
-      class="p-5 rounded-xl mr-3 shadow-md mb-5"
+      class="p-5 rounded-xl mx-3 sm:mr-3 shadow-md mb-5"
       [ngClass]="{
         'bg-neutral-700 shadow-gray-700': isDarkTheme,
         'bg-white': !isDarkTheme

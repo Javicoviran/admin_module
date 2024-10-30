@@ -12,7 +12,7 @@ import { NgClass } from '@angular/common';
   imports: [NgClass, MatTableModule, TranslateModule, CovTableComponent],
   template: `
     <div
-      class="p-5 ml-3 rounded-xl shadow-md"
+      class="p-5 mx-3 sm:ml-3 rounded-xl shadow-md"
       [ngClass]="{
         'bg-neutral-700 shadow-gray-700': isDarkTheme,
         'bg-white': !isDarkTheme

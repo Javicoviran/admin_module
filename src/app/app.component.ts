@@ -13,7 +13,6 @@ import { NavbarComponent } from './shared/ui/header/navbar/navbar.component';
 import { AppStateService } from './shared/services/app-state.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { TranslateService } from '@ngx-translate/core';
-import { BreadcrumbComponent } from './shared/ui/breadcrumb/breadcrumb.component';
 import { ThemeService } from './shared/services/theme.service';
 
 @Component({
@@ -25,7 +24,6 @@ import { ThemeService } from './shared/services/theme.service';
     MatButtonModule,
     MatMenuModule,
     NavbarComponent,
-    BreadcrumbComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
