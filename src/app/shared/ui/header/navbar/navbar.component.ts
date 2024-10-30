@@ -32,13 +32,14 @@ import { ThemeButtonComponent } from '../theme-button/theme-button.component';
           />
         </div>
       </a>
-      <app-theme-button></app-theme-button>
-      <div class="md:hidden">
+      <div class="flex justify-around items-center md:hidden w-1/3">
+        <app-theme-button></app-theme-button>
         <app-menu-hamburguer
           class="flex justify-end items-end"
         ></app-menu-hamburguer>
       </div>
       <div class="hidden md:flex md:justify-center md:items-center md:gap-3">
+        <app-theme-button></app-theme-button>
         <app-language-menu></app-language-menu>
         <app-config-menu></app-config-menu>
       </div>

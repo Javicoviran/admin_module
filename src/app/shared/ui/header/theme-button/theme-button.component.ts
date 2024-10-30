@@ -6,7 +6,11 @@ import { MatButtonModule } from '@angular/material/button';
   selector: 'app-theme-button',
   standalone: true,
   imports: [MatButtonModule],
-  template: ` <button mat-button (click)="themeService.toggleTheme()">
+  template: ` <button
+    mat-flat-button
+    class="tertiary-button"
+    (click)="themeService.toggleTheme()"
+  >
     <img
       [src]="
         isDarkTheme ? 'assets/svg/light-mode.svg' : 'assets/svg/dark-mode.svg'
