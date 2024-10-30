@@ -75,9 +75,6 @@ export class AppStateService {
           }));
         },
         error: (error) => {
-          // TODO: se mete por aquí, investigar
-          console.log('error??');
-
           this.state.update((state) => ({
             ...state,
             status: 'ok',
@@ -86,8 +83,6 @@ export class AppStateService {
           }));
         },
       });
-      console.log('profile');
-
       this.authService.profile().subscribe({
         next: (res) => {
           this.state.update((state) => ({
@@ -96,9 +91,6 @@ export class AppStateService {
           }));
         },
         error: (error) => {
-          console.log('error profile');
-          console.log(error.status);
-
           // this.state.update((state) => ({
           //   ...state,
           //   status: 'error',
