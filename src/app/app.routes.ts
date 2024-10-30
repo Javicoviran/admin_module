@@ -4,9 +4,7 @@ export const routes: Routes = [
   {
     path: 'admin',
     loadComponent: () =>
-      import('./admin/menu/menu-list/menu-list.component').then(
-        (m) => m.MenuListComponent
-      ),
+      import('./admin/admin/admin.component').then((m) => m.AdminComponent),
     data: { breadcrumb: 'breadcrumb.admin' },
     children: [
       {

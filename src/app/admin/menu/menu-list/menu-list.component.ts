@@ -7,11 +7,34 @@ import { Router, RouterOutlet } from '@angular/router';
 import { BreadCrumbService } from '../../../shared/services/bread-crumb.service';
 import { ThemeService } from '../../../shared/services/theme.service';
 
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+
 @Component({
   selector: 'app-menu-list',
   standalone: true,
-  imports: [NgClass, RouterOutlet, NgFor, NgIf, MenuItemComponent],
+  imports: [
+    NgClass,
+    RouterOutlet,
+    NgFor,
+    NgIf,
+    MenuItemComponent,
+    MatMenuModule,
+    MatButtonModule,
+  ],
   template: `
+    @if(!isAdminRoute || !isSmallScreen){
+    <div
+      class="hidden sm:flex flex-wrap justify-center items-center gap-5 my-5 w-full"
+    >
+      @for (menuItem of menuList;track menuItem ){
+      <app-menu-item
+        [menuItem]="menuItem"
+        class="w-full max-w-40"
+      ></app-menu-item>
+      }
+    </div>
+    } @if(isAdminRoute && isSmallScreen){
     <div class="flex flex-wrap justify-center items-center gap-5 my-5 w-full">
       @for (menuItem of menuList;track menuItem ){
       <app-menu-item
@@ -20,7 +43,27 @@ import { ThemeService } from '../../../shared/services/theme.service';
       ></app-menu-item>
       }
     </div>
-    <router-outlet></router-outlet>
+    }@if (!isAdminRoute && isSmallScreen) {
+    <div class="flex sm:hidden justify-center items-center my-5 w-full">
+      <button
+        mat-flat-button
+        [matMenuTriggerFor]="menu"
+        class="tertiary-button"
+      >
+        Menu
+      </button>
+      <mat-menu #menu="matMenu">
+        @for (menuItem of menuList;track menuItem ){
+        <div class="p-2">
+          <app-menu-item
+            [menuItem]="menuItem"
+            class="w-full max-w-40"
+          ></app-menu-item>
+        </div>
+        }
+      </mat-menu>
+    </div>
+    }
   `,
 })
 export class MenuListComponent implements OnInit {
@@ -29,6 +72,8 @@ export class MenuListComponent implements OnInit {
   themeService = inject(ThemeService);
   isDarkTheme!: boolean;
   menuList: MenuItemModel[] = menuList;
+  isSmallScreen = window.innerWidth <= 640;
+  isAdminRoute = false;
   actualUrl!: string;
 
   constructor() {
@@ -38,13 +83,19 @@ export class MenuListComponent implements OnInit {
       if (this.isDarkTheme !== newTheme) {
         this.isDarkTheme = newTheme;
       }
+      this.isAdminRoute = this.router.url === '/admin';
+    });
+    window.addEventListener('resize', () => {
+      return this.updateScreenSize(window.innerWidth);
     });
   }
 
   ngOnInit(): void {
     this.actualUrl = this.breadCrumbService.actualRoute();
+    this.isAdminRoute = this.router.url === '/admin';
   }
-  isAdminRoute(route: string): boolean {
-    return this.router.url === '/admin';
+
+  private updateScreenSize(width: number) {
+    this.isSmallScreen = width <= 640;
   }
 }
