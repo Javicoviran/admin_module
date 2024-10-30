@@ -19,7 +19,13 @@ import { CovTableComponent } from '../../shared/ui/cov-table/cov-table.component
     CovTableComponent,
   ],
   template: `
-    <div class="grid grid-cols-1 gap-5">
+    <div
+      class="p-5 rounded-xl mx-5 shadow-md mb-5"
+      [ngClass]="{
+        'bg-neutral-700 shadow-gray-700': isDarkTheme,
+        'bg-white': !isDarkTheme
+      }"
+    >
       <app-cov-table
         [columns]="columns"
         [dataSource]="dataSource"
@@ -28,6 +34,14 @@ import { CovTableComponent } from '../../shared/ui/cov-table/cov-table.component
   `,
 })
 export class ModuleComponent {
+  private themeService = inject(ThemeService);
+  isDarkTheme!: boolean;
   columns = moduleDataColumns;
   dataSource = metadataData;
+  constructor() {
+    this.isDarkTheme = this.themeService.isDarkTheme();
+    effect(() => {
+      this.isDarkTheme = this.themeService.isDarkTheme();
+    });
+  }
 }

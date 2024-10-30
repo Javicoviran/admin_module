@@ -17,12 +17,14 @@ import { TabMenuComponent } from '../tab-menu/tab-menu.component';
   ],
   template: `
     <div
-      class="grid grid-cols-1 sm:grid-cols-2 justify-center items-center gap-5 my-5 w-full rounded-xl"
+      class="grid grid-cols-1 md:grid-cols-2 justify-center items-center gap-3 my-5 w-full"
     >
-      <app-process-table></app-process-table>
-      <app-log-table></app-log-table>
-      <app-metrics></app-metrics>
-      <app-metadata></app-metadata>
+      <app-process-table class="h-full"></app-process-table>
+      <app-log-table class="row-span-2 h-full"></app-log-table>
+      <div class="flex flex-col flex-wrap xl:flex-row justify-center items-center gap-3">
+        <app-metrics class="h-full w-72"></app-metrics>
+        <app-metadata class="h-full w-72"></app-metadata>
+      </div>
     </div>
   `,
 })

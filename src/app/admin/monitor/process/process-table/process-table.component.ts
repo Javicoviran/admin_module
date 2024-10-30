@@ -12,8 +12,11 @@ import { NgClass } from '@angular/common';
   imports: [NgClass, MatTableModule, TranslateModule, CovTableComponent],
   template: `
     <div
-      class="w-full p-5 rounded-xl"
-      [ngClass]="{ 'bg-neutral-700': isDarkTheme, 'bg-white': !isDarkTheme }"
+      class="p-5 ml-3 rounded-xl shadow-md"
+      [ngClass]="{
+        'bg-neutral-700 shadow-gray-700': isDarkTheme,
+        'bg-white': !isDarkTheme
+      }"
     >
       <app-cov-table
         [columns]="columns"

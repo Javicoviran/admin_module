@@ -10,8 +10,11 @@ import { LogModel } from '../models/log.model';
   imports: [NgClass, NgFor, TranslateModule],
   template: `
     <div
-      class="w-full p-5 rounded-xl"
-      [ngClass]="{ 'bg-neutral-700': isDarkTheme, 'bg-white': !isDarkTheme }"
+      class="p-5 rounded-xl mr-3 shadow-md mb-5"
+      [ngClass]="{
+        'bg-neutral-700 shadow-gray-700': isDarkTheme,
+        'bg-white': !isDarkTheme
+      }"
     >
       <h3 class="mb-4">{{ 'logTable.title' | translate }}</h3>
       @for(log of dataSource; track log){
@@ -43,6 +46,11 @@ export class LogTableComponent {
   private themeService = inject(ThemeService);
   isDarkTheme!: boolean;
   dataSource: LogModel[] = [
+    { type: 'Error', description: 'An error occurred while processing.' },
+    { type: 'Info', description: 'Informational message here.' },
+    { type: 'Warning', description: 'This is a warning message.' },
+    { type: 'Debug', description: 'Debugging info.' },
+    { type: 'Info', description: 'Informational message here.' },
     { type: 'Error', description: 'An error occurred while processing.' },
     { type: 'Info', description: 'Informational message here.' },
     { type: 'Warning', description: 'This is a warning message.' },

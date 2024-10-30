@@ -8,10 +8,7 @@ import { NgClass } from '@angular/common';
   selector: 'app-statistics',
   standalone: true,
   imports: [NgClass, LineChartComponent, ComponentUseComponent],
-  template: ` <div
-    class="grid grid-cols-1 gap-3 justify-center items-center m-5 p-5 rounded-xl"
-    [ngClass]="{ 'bg-neutral-700': isDarkTheme, 'bg-white': !isDarkTheme }"
-  >
+  template: ` <div class="grid grid-cols-1 gap-3 justify-center items-center">
     <app-line-chart></app-line-chart>
     <app-component-use></app-component-use>
   </div>`,

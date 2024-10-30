@@ -21,10 +21,10 @@ import { ThemeService } from '../../../shared/services/theme.service';
   ],
   template: `
     <div
-      class="grid grid-cols-1 justify-center items-center gap-5 p-5 mt-3 rounded-xl"
+      class="grid grid-cols-1 justify-center items-center gap-5 p-5 m-3 shadow-md rounded-xl"
       [ngClass]="{
-        'bg-neutral-700': isDarkTheme,
-        'bg-white': !isDarkTheme,
+        'bg-neutral-700 shadow-gray-800 hover:shadow-gray-700': isDarkTheme,
+        'bg-white': !isDarkTheme
       }"
     >
       <div class="w-full overflow-x-auto">

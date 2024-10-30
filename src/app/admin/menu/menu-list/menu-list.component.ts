@@ -12,11 +12,11 @@ import { ThemeService } from '../../../shared/services/theme.service';
   standalone: true,
   imports: [NgClass, RouterOutlet, NgFor, NgIf, MenuItemComponent],
   template: `
-    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 justify-items-center my-5">
+    <div class="flex flex-wrap justify-center items-center gap-5 my-5 w-full">
       @for (menuItem of menuList;track menuItem ){
       <app-menu-item
         [menuItem]="menuItem"
-        class="w-full max-w-48"
+        class="w-full max-w-40"
       ></app-menu-item>
       }
     </div>

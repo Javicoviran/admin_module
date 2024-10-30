@@ -1,12 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, effect, inject } from '@angular/core';
 import { DatabaseConfig } from './databaseConfig.model';
+import { NgClass } from '@angular/common';
+import { ThemeService } from '../../../shared/services/theme.service';
 
 @Component({
   selector: 'app-config-ddbb',
   standalone: true,
-  imports: [],
+  imports: [NgClass],
   template: `
-    <div class="border border-gray-300 rounded-lg overflow-hidden">
+    <div
+      class="overflow-hidden p-5 rounded-xl mx-5 shadow-md mb-5"
+      [ngClass]="{
+        'bg-neutral-700 shadow-gray-700': isDarkTheme,
+        'bg-white': !isDarkTheme
+      }"
+    >
       <h2
         class="text-lg font-semibold text-center py-3 border-b border-gray-300"
       >
@@ -25,7 +33,9 @@ import { DatabaseConfig } from './databaseConfig.model';
           <span>Nombre DDBB:</span>
           <span>{{ databaseConfig.databaseName }}</span>
         </li>
-        <li class="flex justify-between py-2 items-center">
+        <li
+          class="flex flex-col sm:flex-row justify-start sm:justify-between py-2 items-start"
+        >
           <span>Conexión: </span>
           <span class="text-xs">{{ databaseConfig.connectionString }}</span>
         </li>
@@ -34,6 +44,8 @@ import { DatabaseConfig } from './databaseConfig.model';
   `,
 })
 export class ConfigDdbbComponent {
+  private themeService = inject(ThemeService);
+  isDarkTheme!: boolean;
   databaseConfig: DatabaseConfig = {
     host: 'localhost',
     port: 5432,
@@ -41,4 +53,10 @@ export class ConfigDdbbComponent {
     connectionString:
       'postgresql://user:password@localhost:5432/mi_base_de_datos',
   };
+  constructor() {
+    this.isDarkTheme = this.themeService.isDarkTheme();
+    effect(() => {
+      this.isDarkTheme = this.themeService.isDarkTheme();
+    });
+  }
 }

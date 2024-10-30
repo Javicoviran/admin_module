@@ -21,7 +21,7 @@ import { NgClass } from '@angular/common';
       [routerLink]="[this.menuItem.path]"
       class="flex gap-3 justify-start w-full p-4 border-l-4 border-green-600 shadow-md hover:shadow-lg transition-shadow duration-300 rounded-lg cursor-pointer"
       [ngClass]="{
-        'bg-neutral-600 shadow-gray-800 hover:shadow-gray-700': isDarkTheme,
+        'bg-neutral-700 shadow-gray-800 hover:shadow-gray-700': isDarkTheme,
         'bg-white': !isDarkTheme
       }"
     >
