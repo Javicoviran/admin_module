@@ -8,13 +8,7 @@ import { NgClass } from '@angular/common';
   selector: 'app-cov-table',
   standalone: true,
   imports: [NgClass, MatTableModule, TranslateModule],
-  template: ` <div
-    class="w-full overflow-x-auto border-2 rounded-xl"
-    [ngClass]="{
-      ' border-black text-black': !isDarkTheme,
-      'border-white text-white': isDarkTheme
-    }"
-  >
+  template: ` <div class="w-full overflow-x-auto rounded-xl">
     <table
       mat-table
       [dataSource]="dataSource"

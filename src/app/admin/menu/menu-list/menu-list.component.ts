@@ -1,6 +1,13 @@
-import { Component, effect, inject, OnInit } from '@angular/core';
+import {
+  Component,
+  effect,
+  Inject,
+  inject,
+  OnInit,
+  PLATFORM_ID,
+} from '@angular/core';
 import { MenuItemComponent } from '../menu-item/menu-item.component';
-import { NgClass, NgFor, NgIf } from '@angular/common';
+import { isPlatformBrowser, NgClass, NgFor, NgIf } from '@angular/common';
 import { MenuItemModel } from '../model/menu-item.model';
 import { menuList } from '../utils/utils';
 import { Router, RouterOutlet } from '@angular/router';
@@ -72,11 +79,11 @@ export class MenuListComponent implements OnInit {
   themeService = inject(ThemeService);
   isDarkTheme!: boolean;
   menuList: MenuItemModel[] = menuList;
-  isSmallScreen = window.innerWidth <= 640;
+  isSmallScreen = false;
   isAdminRoute = false;
   actualUrl!: string;
 
-  constructor() {
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
     effect(() => {
       this.actualUrl = this.breadCrumbService.actualRoute();
       const newTheme = this.themeService.isDarkTheme();
@@ -85,9 +92,12 @@ export class MenuListComponent implements OnInit {
       }
       this.isAdminRoute = this.router.url === '/admin';
     });
-    window.addEventListener('resize', () => {
-      return this.updateScreenSize(window.innerWidth);
-    });
+    if (isPlatformBrowser(this.platformId)) {
+      this.updateScreenSize(window.innerWidth);
+      window.addEventListener('resize', () => {
+        return this.updateScreenSize(window.innerWidth);
+      });
+    }
   }
 
   ngOnInit(): void {
